@@ -1,38 +1,54 @@
-package ru.prokudin.geekbrains.homework;
+class Employee{
 
-import java.text.MessageFormat;
-import java.util.Scanner;
+    private String Name;
+    private String Position;
 
-/**
- * Created by Serge Prokudin on 19.12.2019.
- * Урок № 5 Задание № 1
- * 1. Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст;
- * 2. Конструктор класса должен заполнять эти поля при создании объекта;
- * 3. Внутри класса «Сотрудник» написать метод, который выводит информацию об объекте в консоль;
- * 4. Создать массив из 5 сотрудников
- * 5. * С помощью цикла вывести информацию только о сотрудниках старше 40 лет;
- */
+    private String Email;
+    private String Telephone;
+    private long Age;
+    private long Salary;
 
+    public Employee(String name, String position, String email, String phone, long age, long salary){
+        this.Name = name;
+        this.Position = position;
+        this.Email = email;
+        this.Telephone = phone;
+        this.Age = age;
+        this.Salary = salary;
+    }
+    public String getName()
+    { return Name;}
+    public String getPosition()
+    { return Position;}
+    public String getEmail()
+    { return Email;}
+    public String getTelephone()
+    {return Telephone;}
+    public long getAge()
+    {return Age;}
+    public long getSalary()
+    {return Salary;}
+
+}
 public class Main {
-
-
     public static void main(String[] args) {
-        class Employee {
+        Employee[] staff = new Employee[5];
+        staff[0]=new Employee("Иванов И.И.","Engineer", "ivanov@mail.ru",
+                "+7921-555-00-00", 45, 80000);
+        staff[1]=new Employee("Сидоров С.С.","Architect", "sidorov@mail.ru",
+                "+7921-777-00-00", 33, 75000);
+        staff[2]=new Employee("Мозгоклюева А.А.","Жена Директора", "mozgoklueva@mail.ru",
+                "+7921-666-00-00", 48, 98000);
+        staff[3]=new Employee("Петров П.П.","Помощник Боширова", "fsb666ivanov@mail.ru",
+                "+7921-333-03-03", 38, 88000);
+        staff[4]=new Employee("Боширов И.Ш.","Спец. 'Новичок'", "fsb777@mail.ru",
+                "+7921-333-02-02", 43, 90000);
 
-            private String Name;
-            private String Position;
+        for(int i=0; i<staff.length; i++)
+            System.out.println("\n\tФИО: "+staff[i].getName() + ", Должность: " + staff[i].getPosition() +
+              ", Тел: " + staff[i].getTelephone() + ", Email: " + staff[i].getEmail() +
+                    ", Возраст: " + staff[i].getAge() + ", З/плата: " + staff[i].getSalary());
 
-            public Employee(String n, String p) {
-                Name = n;
-                Position = p;
-            }
-            void GetData() {
-                Scanner sc = new Scanner(System.in);
 
-                System.out.print("\n\tEnter Employee Name : ");
-                Name = sc.nextLine();
-            }
-        }
     }
 }
-
