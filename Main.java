@@ -1,3 +1,13 @@
+package ru.prokudin.geekbrains.homework;
+/**
+ * Created by Serge Prokudin on 19.12.2019.
+ * Урок № 5 Задание № 1
+ * 1. Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст;
+ * 2. Конструктор класса должен заполнять эти поля при создании объекта;
+ * 3. Внутри класса «Сотрудник» написать метод, который выводит информацию об объекте в консоль;
+ * 4. Создать массив из 5 сотрудников
+ * 5. * С помощью цикла вывести информацию только о сотрудниках старше 40 лет;
+ */
 class Employee{
 
     private String Name;
@@ -44,11 +54,13 @@ public class Main {
         staff[4]=new Employee("Боширов И.Ш.","Спец. 'Новичок'", "fsb777@mail.ru",
                 "+7921-333-02-02", 43, 90000);
 
-        for(int i=0; i<staff.length; i++)
-            System.out.println("\n\tФИО: "+staff[i].getName() + ", Должность: " + staff[i].getPosition() +
-              ", Тел: " + staff[i].getTelephone() + ", Email: " + staff[i].getEmail() +
-                    ", Возраст: " + staff[i].getAge() + ", З/плата: " + staff[i].getSalary());
-
+        for(int i=0; i<staff.length; i++){
+            if(staff[i].getAge()>40) {
+                System.out.println("\n\tФИО: " + staff[i].getName() + ", Должность: " + staff[i].getPosition() +
+                        ", Тел: " + staff[i].getTelephone() + ", Email: " + staff[i].getEmail() +
+                        ", Возраст: " + staff[i].getAge() + ", З/плата: " + staff[i].getSalary());
+            }
+        }
 
     }
 }
